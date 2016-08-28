@@ -32654,12 +32654,12 @@
     intero = callPackage ({ company, emacs, fetchFromGitHub, fetchurl, flycheck, haskell-mode, lib, melpaBuild }:
     melpaBuild {
         pname = "intero";
-        version = "20160725.19";
+        version = "20160825.656";
         src = fetchFromGitHub {
           owner = "commercialhaskell";
           repo = "intero";
-          rev = "337144280ccb3933277ab7f416a8acdb2bc08090";
-          sha256 = "0hafg68yrw3njsfblghna81jqam7y8l9dqxzcr3qwn9nz3ppiw5m";
+          rev = "037f1acd9d275d669e594942e1c207264b1e0282";
+          sha256 = "1m73y99yvbwkdbrfaiibk33ibc1alwdg3nwgnn7fn7ivxz91n617";
         };
         recipeFile = fetchurl {
           url = "https://raw.githubusercontent.com/milkypostman/melpa/1b56ca344ad944e03b669a9974e9b734b5b445bb/recipes/intero";
