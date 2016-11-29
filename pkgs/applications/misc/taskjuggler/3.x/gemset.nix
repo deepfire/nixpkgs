@@ -17,10 +17,10 @@
     };
   };
   "taskjuggler" = {
-    version = "3.5.0";
+    version = "3.6.0";
     source = {
       type = "gem";
-      sha256 = "0r84rlc7a6w7p9nc9mgycbs5h0hq0kzscjq7zj3296xyf0afiwj2";
+      sha256 = "0ky3cydl3szhdyxsy4k6zxzjlbll7mlq025aj6xd5jmh49k3pfbp";
     };
     dependencies = [
       "mail"

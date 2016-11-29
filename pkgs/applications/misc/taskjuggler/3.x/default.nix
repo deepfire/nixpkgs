@@ -1,7 +1,7 @@
 { lib, bundlerEnv, ruby }:
 
 bundlerEnv {
-  name = "taskjuggler-3.5.0";
+  name = "taskjuggler-3.6.0";
 
   inherit ruby;
   gemfile = ./Gemfile;
