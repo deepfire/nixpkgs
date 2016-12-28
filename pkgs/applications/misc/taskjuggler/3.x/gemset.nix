@@ -19,8 +19,11 @@
   "taskjuggler" = {
     version = "3.6.0";
     source = {
-      type = "gem";
-      sha256 = "0ky3cydl3szhdyxsy4k6zxzjlbll7mlq025aj6xd5jmh49k3pfbp";
+      type = "git";
+      url = "https://github.com/taskjuggler/TaskJuggler/";
+      rev = "e0ff1dd39caba7e7c0ec2f4dbc195a59ba3afa0e";
+      fetchSubmodules = false;
+      sha256 = "1dm0c5j02ilmzqsvwmfvrpd79rkkzvk2xgpg2xvc0wlz4w9japj0";
     };
     dependencies = [
       "mail"
