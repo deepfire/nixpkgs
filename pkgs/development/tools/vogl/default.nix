@@ -1,4 +1,4 @@
-{ fetchgit, stdenv
+{ fetchFromGitHub, stdenv
 , cmake, git, pkgconfig, wget, zip
 , makeQtWrapper, qtbase, qtx11extras
 , libdwarf, libjpeg_turbo, libunwind, lzma, tinyxml, libX11
@@ -12,18 +12,19 @@ stdenv.mkDerivation {
   name = "vogl-${ver}";
   version = "${ver}";
 
-  src = fetchgit {
-	  url    = "https://github.com/deepfire/vogl.git";
-          rev    = "cbc5f1853e294b363f16c4e00b3e0c49dbf74559";
-          sha256 = "17gwd73x3lnqv6ccqs48pzqwbzjhbn41c0x0l5zzirhiirb3yh0n";
-        };
+  src = fetchFromGitHub {
+    owner  = "deepfire";
+    repo   = "vogl";
+    rev    = "cbc5f1853e294b363f16c4e00b3e0c49dbf74559";
+    sha256 = "17gwd73x3lnqv6ccqs48pzqwbzjhbn41c0x0l5zzirhiirb3yh0n";
+  };
 
   nativeBuildInputs = [
-    makeQtWrapper pkgconfig
+    cmake makeQtWrapper pkgconfig
   ];
 
   buildInputs = [
-    cmake git pkgconfig wget zip
+    git wget zip
     qtbase qtx11extras
     libdwarf libjpeg_turbo libunwind lzma tinyxml libX11
     SDL2 SDL2_gfx SDL2_image SDL2_ttf
@@ -43,7 +44,7 @@ stdenv.mkDerivation {
     description = "OpenGL capture / playback debugger.";
     homepage = https://github.com/ValveSoftware/vogl;
     license = licenses.bsd3;
-    maintainers = with maintainers; [ deepfire ];
+    maintainers = maintainers.deepfire;
     platforms = platforms.all;
   };
 }
