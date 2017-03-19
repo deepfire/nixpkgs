@@ -45,6 +45,6 @@ stdenv.mkDerivation {
     homepage = https://github.com/ValveSoftware/vogl;
     license = licenses.bsd3;
     maintainers = maintainers.deepfire;
-    platforms = platforms.all;
+    platforms = [ "x86_64-linux" "i686-linux" ];
   };
 }
