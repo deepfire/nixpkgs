@@ -44,7 +44,7 @@ stdenv.mkDerivation {
     description = "OpenGL capture / playback debugger.";
     homepage = https://github.com/ValveSoftware/vogl;
     license = licenses.bsd3;
-    maintainers = maintainers.deepfire;
+    maintainers = [ maintainers.deepfire ];
     platforms = [ "x86_64-linux" "i686-linux" ];
   };
 }
