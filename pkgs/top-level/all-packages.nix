@@ -15900,7 +15900,7 @@ with pkgs;
 
   vnstat = callPackage ../applications/networking/vnstat { };
 
-  vogl = qt5.callPackage ../development/tools/vogl { };
+  vogl = qt57.callPackage ../development/tools/vogl { };
 
   volnoti = callPackage ../applications/misc/volnoti { };
 
