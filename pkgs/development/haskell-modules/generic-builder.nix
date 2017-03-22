@@ -36,6 +36,7 @@
 , doCoverage ? false
 # TODO Do we care about haddock when cross-compiling?
 , doHaddock ? !isCross && (!stdenv.isDarwin || stdenv.lib.versionAtLeast ghc.version "7.8")
+, optimisationLevel ? "1"
 , passthru ? {}
 , pkgconfigDepends ? [], libraryPkgconfigDepends ? [], executablePkgconfigDepends ? [], testPkgconfigDepends ? [], benchmarkPkgconfigDepends ? []
 , testDepends ? [], testHaskellDepends ? [], testSystemDepends ? []
@@ -110,6 +111,7 @@ let
     "--verbose" "--prefix=$out" "--libdir=\\$prefix/lib/\\$compiler" "--libsubdir=\\$pkgid"
     "--with-gcc=$CC" # Clang won't work without that extra information.
     "--package-db=$packageConfDir"
+    "--ghc-option=-O${optimisationLevel}"
     (optionalString (enableSharedExecutables && stdenv.isLinux) "--ghc-option=-optl=-Wl,-rpath=$out/lib/${ghc.name}/${pname}-${version}")
     (optionalString (enableSharedExecutables && stdenv.isDarwin) "--ghc-option=-optl=-Wl,-headerpad_max_install_names")
     (optionalString enableParallelBuilding "--ghc-option=-j$NIX_BUILD_CORES")
