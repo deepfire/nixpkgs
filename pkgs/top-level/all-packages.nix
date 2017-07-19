@@ -8365,6 +8365,7 @@ let
       };
     })
     openssl_1_0_1
+    openssl_1_0_1f
     openssl_1_0_2;
 
   openssl-chacha = callPackage ../development/libraries/openssl/chacha.nix {
