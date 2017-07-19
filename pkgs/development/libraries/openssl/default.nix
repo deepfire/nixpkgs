@@ -16,11 +16,11 @@ let
       inherit sha256;
     };
 
-    outputs = [ "out" "man" ];
+    outputs = [ "out" ];
 
     patches =
       args.patches
-      ++ [ ./use-etc-ssl-certs.patch ]
+      # ++ [ ./use-etc-ssl-certs.patch ]
       ++ optional stdenv.isCygwin ./1.0.1-cygwin64.patch
       ++ optional
            (versionOlder version "1.0.2" && (stdenv.isDarwin || (stdenv ? cross && stdenv.cross.libc == "libSystem")))
@@ -52,6 +52,10 @@ let
     # Parallel building is broken in OpenSSL.
     enableParallelBuilding = false;
 
+    installPhase = ''
+    make install_sw
+    '';
+
     postInstall = ''
       # If we're building dynamic libraries, then don't install static
       # libraries.
@@ -67,10 +71,10 @@ let
 
     postFixup = ''
       # Check to make sure we don't depend on perl
-      if grep -r '${perl}' $out; then
-        echo "Found an erroneous dependency on perl ^^^" >&2
-        exit 1
-      fi
+      # if grep -r '${perl}' $out; then
+      #   echo "Found an erroneous dependency on perl ^^^" >&2
+      #   exit 1
+      # fi
     '';
 
     crossAttrs = {
