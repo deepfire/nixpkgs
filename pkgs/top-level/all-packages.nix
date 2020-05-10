@@ -6113,6 +6113,8 @@ in
 
   rocket = libsForQt5.callPackage ../tools/graphics/rocket { };
 
+  rspreadsheet = callPackage ../applications/misc/rspreadsheet { };
+
   rtaudio = callPackage ../development/libraries/audio/rtaudio { };
 
   rtmidi = callPackage ../development/libraries/audio/rtmidi { };
